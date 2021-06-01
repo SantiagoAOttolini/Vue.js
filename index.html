@@ -10,9 +10,9 @@
     <div id="app">
       <h1>{{title}}</h1>
 
-      <input type="text" v-model="newPerson">
+      <input type="text" v-model="newPerson" @keyup.enter="addPerson">
       <!-- you can write v-on:click or @click -->
-      <button @click="addFruit">Add</button>
+      <button @click="addPerson">Add</button>
 
       <ul>
         <li v-for="fruit of fruits">{{fruit}}</li>
@@ -21,11 +21,13 @@
       <ul>
         <!--  for -->
         <li v-for="person of people">
-          {{person.name}} has {{person.age}} years
+          {{person.name}} has
+          <input type="number" v-model.number="person.age"> years
           <!--  if -->
           <span v-if="person.age >= 18"> - Legal age</span>
         </li>
       </ul>
+      <h4>Total: {{sumAge}} </h4>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="01.js"></script>

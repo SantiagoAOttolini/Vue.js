@@ -10,10 +10,21 @@ const app = new Vue({
       { name: "Joaquin", age: 17 },
     ],
     newPerson: "",
+    total: 0,
   },
   methods: {
-    addFruit() {
+    addPerson() {
       this.people.push({ name: this.newPerson, age: 15 });
+      this.newPerson = "";
+    },
+  },
+  computed: {
+    sumAge() {
+      this.total = 0;
+      for (person of this.people) {
+        this.total = this.total + person.age;
+      }
+      return this.total
     },
   },
 });
