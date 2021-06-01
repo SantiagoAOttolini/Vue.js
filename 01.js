@@ -9,5 +9,11 @@ const app = new Vue({
       { name: "Matias", age: 20 },
       { name: "Joaquin", age: 17 },
     ],
+    newPerson: "",
+  },
+  methods: {
+    addFruit() {
+      this.people.push({ name: this.newPerson, age: 15 });
+    },
   },
 });
