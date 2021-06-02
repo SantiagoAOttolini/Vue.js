@@ -7,8 +7,6 @@ Vue.component("Father", {
     </div>
     `,
     computed: {
-        number(){
-            return store.state.number
-        }
+        ...Vuex.mapState(["number"])
     }
   });

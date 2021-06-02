@@ -1,11 +1,17 @@
 Vue.component("titleChild",{
-    /* inside de commit pass the mutation */
     template: //html 
     `
     <div>
         
-        <button @click="$store.commit('increase')">+</button>
-        <h1>number {{$store.state.number}}</h1>  
+        <button @click="increase">+</button>
+        <button @click="decrease(2)">-</button>
+        <h1>number {{number}}</h1>  
     </div>
-    `
+    `,
+    computed: {
+        ...Vuex.mapState(["number"])
+    },
+    methods: {
+        ...Vuex.mapMutations(["increase", "decrease"])
+    }
 })
